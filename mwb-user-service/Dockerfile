@@ -1,4 +1,5 @@
-FROM ubuntu:latest
+FROM amazoncorretto:17-alpine-jdk
 LABEL authors="Quadalus"
 
-ENTRYPOINT ["top", "-b"]
+COPY target/*.jar mwb-user-service.jar
+ENTRYPOINT ["java", "-jar", "/mwb-user-service.jar"]
